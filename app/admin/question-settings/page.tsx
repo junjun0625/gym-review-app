@@ -43,8 +43,8 @@ export default function QuestionsPage() {
       const questionsData = await questionsRes.json();
       setCurrentQuestions(questionsData);
 
-      const ids = new Set(questionsData.map((q: Question) => q.id));
-      setSelectedIds(ids);
+      const ids = new Set<string>(questionsData.map((q: Question) => String(q.id)));
+setSelectedIds(ids);
     } catch (error) {
       console.error('データ取得エラー:', error);
       alert('データの取得に失敗しました');
