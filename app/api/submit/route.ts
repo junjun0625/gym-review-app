@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { saveResponse, getQuestions } from '@/lib/google_sheets';
+import { saveAnswer, getQuestions } from '@/lib/google_sheets';
 import { generateReview } from '@/lib/gemini';
 
 export async function POST(req: Request) {
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     console.log('aiReview:', reviewText);
 
     // 2. スプレッドシートに保存する
-    await saveResponse({
+    await saveAnswer({
       answers: body,
       aiReview: reviewText,
     });
