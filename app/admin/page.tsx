@@ -185,7 +185,7 @@ export default function AdminPage() {
         {/* ナビゲーション */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
           <Card className='cursor-pointer hover:shadow-lg transition-shadow'
-                onClick={() => router.push('/admin/questions')}>
+                onClick={() => router.push('/admin/question-settings')}>
             <CardHeader>
               <CardTitle>質問管理</CardTitle>
             </CardHeader>
