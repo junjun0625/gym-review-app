@@ -42,7 +42,6 @@ export async function getQuestions() {
     step: parseInt(row[5]) || 1,
   }));
 }
-
 export async function saveAnswer(data: any) {
   const { sheets, spreadsheetId } = await loadSpreadsheet();
   
@@ -56,24 +55,27 @@ export async function saveAnswer(data: any) {
     second: '2-digit',
   });
 
+  // data.answers から回答データを取得
+  const answers = data.answers || {};
+
   const values = [
     [
       timestamp,
-      data.birth || '',
-      data.gender || '',
-      data.how_found || '',
-      data.other_gyms || '',
-      data.worry || '',
-      data.worry_detail || '',
-      data.why_choose || '',
-      data.anxiety || '',
-      data.first_impression || '',
-      data.frequency || '',
-      data.duration || '',
-      data.result_physical || '',
-      data.result_mental || '',
-      data.satisfaction || '',
-      data.recommend || '',
+      answers.birth || '',
+      answers.gender || '',
+      answers.how_found || '',
+      answers.other_gyms || '',
+      answers.worry || '',
+      answers.worry_detail || '',
+      answers.why_choose || '',
+      answers.anxiety || '',
+      answers.first_impression || '',
+      answers.frequency || '',
+      answers.duration || '',
+      answers.result_physical || '',
+      answers.result_mental || '',
+      answers.satisfaction || '',
+      answers.recommend || '',
       data.aiReview || '',
     ],
   ];
@@ -85,6 +87,7 @@ export async function saveAnswer(data: any) {
     requestBody: { values },
   });
 }
+
 
 export async function getSettings() {
   try {
